@@ -29,7 +29,7 @@ var Saved = React.createClass({
 		return (
 
 			<div className="row">
-				<div className="col-md-8">
+				<div className="col-sm-8 col-sm-offset-2">
 					<Results title="Saved Articles" button={this.state.button} queryResults={this.state.queryResults} />
 				</div>
 			</div>

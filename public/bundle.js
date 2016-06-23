@@ -24169,9 +24169,9 @@
 	var React = __webpack_require__(1);
 
 	var Main = __webpack_require__(232);
-	var Home = __webpack_require__(235);
+	var Home = __webpack_require__(234);
 
-	var Search = __webpack_require__(234);
+	var Search = __webpack_require__(235);
 
 
 	var Router = __webpack_require__(159);
@@ -24236,7 +24236,7 @@
 				{ className: 'row' },
 				_react2.default.createElement(
 					'div',
-					{ className: 'col-md-8' },
+					{ className: 'col-sm-8 col-sm-offset-2' },
 					_react2.default.createElement(_Results2.default, { title: 'Saved Articles', button: this.state.button, queryResults: this.state.queryResults })
 				)
 			);
@@ -25749,7 +25749,7 @@
 
 	'use strict';
 
-	var _Search = __webpack_require__(234);
+	var _Search = __webpack_require__(235);
 
 	var _Search2 = _interopRequireDefault(_Search);
 
@@ -25763,26 +25763,45 @@
 	  displayName: 'GetSearchTerm',
 
 	  mixins: [Router.History],
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      queryTerm: '',
+	      startYear: '',
+	      endYear: ''
+	    };
+	  },
+
 	  getQuery: function getQuery(query) {
-	    this.queryRef = query;
+	    this.setState({
+	      queryTerm: query
+	    });
 	  },
 
 	  getStartYear: function getStartYear(start) {
-	    this.startYear = start;
+	    this.setState({
+	      startYear: start
+	    });
 	  },
 
 	  getEndYear: function getEndYear(end) {
-	    this.endYear = end;
+	    this.setState({
+	      startYear: start
+	    });
 	  },
 
 	  handleSubmit: function handleSubmit() {
 	    // debugger;
-	    var queryTerm = this.queryRef.value;
-	    var startYear = this.startYear.value;
-	    var endYear = this.endYear.value;
-	    this.queryRef.value = '';
-	    this.startYear.value = '';
-	    this.endYear.value = '';
+	    var queryTerm = this.state.queryTerm;
+	    var startYear = this.state.startYear;
+	    var endYear = this.state.endYear;
+
+	    this.setState({
+	      queryTerm: '',
+	      startYear: '',
+	      endYear: ''
+	    });
+
 	    debugger;
 	    this.history.pushState(null, "search/" + queryTerm + "/" + startYear + "/" + endYear);
 	  },
@@ -25801,24 +25820,24 @@
 	        React.createElement(
 	          'div',
 	          { className: 'form-group col-sm-12' },
-	          React.createElement('input', { placeholder: 'Search: ', type: 'text', className: 'form-control', id: 'query', ref: this.getQuery })
+	          React.createElement('input', { placeholder: 'Search: ', type: 'text', className: 'form-control', id: 'query', ref: this.getQuery, required: true })
 	        ),
 	        React.createElement(
 	          'div',
 	          { className: 'form-group col-sm-12' },
-	          React.createElement('input', { placeholder: 'Start Year', type: 'text', className: 'form-control', id: 'start', ref: this.getStartYear })
+	          React.createElement('input', { placeholder: 'Start Year', type: 'text', className: 'form-control', id: 'start', ref: this.getStartYear, required: true })
 	        ),
 	        React.createElement(
 	          'div',
 	          { className: 'form-group col-sm-12' },
-	          React.createElement('input', { placeholder: 'End Year', type: 'text', className: 'form-control', id: 'end', ref: this.getEndYear })
+	          React.createElement('input', { placeholder: 'End Year', type: 'text', className: 'form-control', id: 'end', ref: this.getEndYear, required: true })
 	        ),
 	        React.createElement(
 	          'div',
 	          { className: 'form-group col-sm-3 col-sm-offset-3' },
 	          React.createElement(
 	            'button',
-	            { type: 'submit', className: 'btn btn-block btn-default' },
+	            { disable: this.state.queryTerm == '' || this.state.startYear == '' || this.state.endYear == '', type: 'submit', className: 'btn btn-block btn-default' },
 	            'Search NY Times'
 	          )
 	        )
@@ -25844,6 +25863,36 @@
 
 /***/ },
 /* 234 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	// Here we created the home component
+	var Home = React.createClass({
+		displayName: "Home",
+
+		render: function render() {
+			return(
+
+				// Here we use className instead of class because class is a reserved name in Javascript
+				// The converter will take className and call it class.
+				React.createElement(
+					"h2",
+					{ className: "text-center" },
+					"Search NY Times Articles by topic above."
+				)
+			);
+		}
+
+	});
+
+	// Exporting the component effectively means we can deploy the component in any other file.
+	module.exports = Home;
+
+/***/ },
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25903,36 +25952,6 @@
 	});
 
 	module.exports = Search;
-
-/***/ },
-/* 235 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var React = __webpack_require__(1);
-
-	// Here we created the home component
-	var Home = React.createClass({
-		displayName: "Home",
-
-		render: function render() {
-			return(
-
-				// Here we use className instead of class because class is a reserved name in Javascript
-				// The converter will take className and call it class.
-				React.createElement(
-					"h2",
-					{ className: "text-center" },
-					"Search NY Times Articles by topic above."
-				)
-			);
-		}
-
-	});
-
-	// Exporting the component effectively means we can deploy the component in any other file.
-	module.exports = Home;
 
 /***/ }
 /******/ ]);
