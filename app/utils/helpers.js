@@ -3,14 +3,17 @@ var axios = require('axios');
 
 var authKey = "9d4a8986921972b65754ea0809d47c84:12:74623931";
 
-function getArticles(queryTerm){
-	return axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key="+authKey+"&q="+queryTerm);
-};
+function getArticles(queryTerm, startYear, endYear){
+	return axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key="+authKey+"&q="+queryTerm+'&begin_date='+startYear+'0101&end_date='+endYear+'0101');
+
+}
 
 var helpers = {
-	getAllArticles: function(queryTerm){
-		return axios.all([getArticles(queryTerm)])
+	getAllArticles: function(queryTerm, startYear, endYear){
+		debugger;
+		return axios.all([getArticles(queryTerm, startYear, endYear)])
 			.then(function(arr){
+				debugger;
 				return {
 
 				queryResults: arr[0].data.response.docs

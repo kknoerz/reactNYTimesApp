@@ -16,7 +16,12 @@ var Search = React.createClass({
 	},
 	componentDidMount: function(){
 
-		helpers.getAllArticles(this.props.params.queryTerm)
+		debugger;
+		var queryTerm = this.props.params.queryTerm;
+		var startYear = this.props.params.startYear;
+		var endYear = this.props.params.endYear;
+
+		helpers.getAllArticles(queryTerm, startYear, endYear)
 		.then(function(data){
 
 			this.setState({
@@ -31,7 +36,7 @@ var Search = React.createClass({
 		return(
 
 			<div className="row">
-				<div className="col-md-8">
+				<div className="col-sm-8 col-sm-offset-2">
 					<Results button={this.state.button} queryResults={this.state.queryResults} />
 				</div>
 			</div>

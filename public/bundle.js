@@ -24182,7 +24182,7 @@
 	module.exports = React.createElement(
 		Route,
 		{ path: '/', component: Main },
-		React.createElement(Route, { path: 'search/:queryTerm', component: Search }),
+		React.createElement(Route, { path: 'search/:queryTerm/:startYear/:endYear', component: Search }),
 		React.createElement(Route, { path: 'saved', component: _Saved2.default }),
 		React.createElement(IndexRoute, { component: Home })
 	);
@@ -24429,13 +24429,15 @@
 
 	var authKey = "9d4a8986921972b65754ea0809d47c84:12:74623931";
 
-	function getArticles(queryTerm) {
-		return axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + authKey + "&q=" + queryTerm);
-	};
+	function getArticles(queryTerm, startYear, endYear) {
+		return axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + authKey + "&q=" + queryTerm + '&begin_date=' + startYear + '0101&end_date=' + endYear + '0101');
+	}
 
 	var helpers = {
-		getAllArticles: function getAllArticles(queryTerm) {
-			return axios.all([getArticles(queryTerm)]).then(function (arr) {
+		getAllArticles: function getAllArticles(queryTerm, startYear, endYear) {
+			debugger;
+			return axios.all([getArticles(queryTerm, startYear, endYear)]).then(function (arr) {
+				debugger;
 				return {
 
 					queryResults: arr[0].data.response.docs
@@ -25713,6 +25715,19 @@
 					{ className: 'navbar navbar-default', role: 'navigation' },
 					React.createElement(
 						'div',
+						{ className: 'container', style: { marginTop: 15 } },
+						React.createElement(
+							'div',
+							{ className: 'jumbotron' },
+							React.createElement(
+								'h1',
+								null,
+								'New York Times Article Scrubber'
+							)
+						)
+					),
+					React.createElement(
+						'div',
 						{ className: 'col-md-8 col-md-offset-2', style: { marginTop: 15 } },
 						React.createElement(GetSearchTerm, null)
 					)
@@ -25748,15 +25763,28 @@
 	  displayName: 'GetSearchTerm',
 
 	  mixins: [Router.History],
-	  getRef: function getRef(ref) {
-	    this.queryRef = ref;
+	  getQuery: function getQuery(query) {
+	    this.queryRef = query;
 	  },
+
+	  getStartYear: function getStartYear(start) {
+	    this.startYear = start;
+	  },
+
+	  getEndYear: function getEndYear(end) {
+	    this.endYear = end;
+	  },
+
 	  handleSubmit: function handleSubmit() {
 	    // debugger;
 	    var queryTerm = this.queryRef.value;
+	    var startYear = this.startYear.value;
+	    var endYear = this.endYear.value;
 	    this.queryRef.value = '';
-	    console.log('This is queryTerm: ', queryTerm);
-	    this.history.pushState(null, "search/" + queryTerm);
+	    this.startYear.value = '';
+	    this.endYear.value = '';
+	    debugger;
+	    this.history.pushState(null, "search/" + queryTerm + "/" + startYear + "/" + endYear);
 	  },
 
 	  showArticles: function showArticles() {
@@ -25772,12 +25800,22 @@
 	        { onSubmit: this.handleSubmit },
 	        React.createElement(
 	          'div',
-	          { className: 'form-group col-sm-6' },
-	          React.createElement('input', { type: 'text', className: 'form-control', ref: this.getRef })
+	          { className: 'form-group col-sm-12' },
+	          React.createElement('input', { placeholder: 'Search: ', type: 'text', className: 'form-control', id: 'query', ref: this.getQuery })
 	        ),
 	        React.createElement(
 	          'div',
-	          { className: 'form-group col-sm-3' },
+	          { className: 'form-group col-sm-12' },
+	          React.createElement('input', { placeholder: 'Start Year', type: 'text', className: 'form-control', id: 'start', ref: this.getStartYear })
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'form-group col-sm-12' },
+	          React.createElement('input', { placeholder: 'End Year', type: 'text', className: 'form-control', id: 'end', ref: this.getEndYear })
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'form-group col-sm-3 col-sm-offset-3' },
 	          React.createElement(
 	            'button',
 	            { type: 'submit', className: 'btn btn-block btn-default' },
@@ -25836,7 +25874,12 @@
 		},
 		componentDidMount: function componentDidMount() {
 
-			helpers.getAllArticles(this.props.params.queryTerm).then(function (data) {
+			debugger;
+			var queryTerm = this.props.params.queryTerm;
+			var startYear = this.props.params.startYear;
+			var endYear = this.props.params.endYear;
+
+			helpers.getAllArticles(queryTerm, startYear, endYear).then(function (data) {
 
 				this.setState({
 					queryResults: data.queryResults
@@ -25852,7 +25895,7 @@
 				{ className: 'row' },
 				React.createElement(
 					'div',
-					{ className: 'col-md-8' },
+					{ className: 'col-sm-8 col-sm-offset-2' },
 					React.createElement(Results, { button: this.state.button, queryResults: this.state.queryResults })
 				)
 			);
