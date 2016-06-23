@@ -13,21 +13,14 @@ var Saved = React.createClass({
 
 	componentWillMount: function(){
 		debugger;
-		// setTimeout(function(){ 
 
-			helpers.getSaved(function(saved){
-				debugger;
+		helpers.getSaved(function(saved){
+			debugger;
 
-				this.setState({
-					queryResults: saved.data
-				
-				});
-			}.bind(this));
-			// .then(function(data){
-			// 	debugger;
-			
-			// });
-		// }, 1000);
+			this.setState({
+				queryResults: saved.data			
+			});
+		}.bind(this));
 		
 	},
 

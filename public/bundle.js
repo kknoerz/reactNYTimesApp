@@ -24219,21 +24219,14 @@
 
 		componentWillMount: function componentWillMount() {
 			debugger;
-			// setTimeout(function(){
 
 			helpers.getSaved(function (saved) {
 				debugger;
 
 				this.setState({
 					queryResults: saved.data
-
 				});
 			}.bind(this));
-			// .then(function(data){
-			// 	debugger;
-
-			// });
-			// }, 1000);
 		},
 
 		render: function render() {
@@ -24274,48 +24267,67 @@
 
 
 		getInitialState: function getInitialState() {
+			debugger;
 			return {
 				button: this.props.button,
 				queryResults: this.props.queryResults
 			};
 		},
 
+		componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+			debugger;
+
+			this.setState({
+				queryResults: nextProps.queryResults
+			});
+
+			debugger;
+		},
+
 		render: function render() {
 
-			var articles = [];
-			// articles = this.props.articles;
-			debugger;
-			this.state.queryResults.forEach(function (article) {
+			if (this.state.queryResults) {
+				var articles = [];
 
-				articles.push(_react2.default.createElement(_Article2.default, { button: this.props.button, title: article.headline.main, url: article.web_url, key: article._id }));
-			}.bind(this));
+				debugger;
 
-			return _react2.default.createElement(
-				'div',
-				{ className: 'main-container' },
-				_react2.default.createElement(
+				this.state.queryResults.forEach(function (article) {
+
+					if (article.headline != undefined) {
+						articles.push(_react2.default.createElement(_Article2.default, { button: this.props.button, title: article.headline.main, url: article.web_url, key: article._id, id: article._id }));
+					} else if (article.title) {
+						articles.push(_react2.default.createElement(_Article2.default, { button: this.props.button, title: article.title, url: article.url, key: article._id, id: article._id }));
+					}
+				}.bind(this));
+
+				return _react2.default.createElement(
 					'div',
-					{ className: 'row' },
+					{ className: 'main-container' },
 					_react2.default.createElement(
 						'div',
-						{ className: 'col-lg-12' },
+						{ className: 'row' },
 						_react2.default.createElement(
 							'div',
-							{ className: 'panel panel-primary' },
+							{ className: 'col-lg-12' },
 							_react2.default.createElement(
 								'div',
-								{ className: 'panel-body' },
+								{ className: 'panel panel-primary' },
 								_react2.default.createElement(
-									'ul',
-									{ className: 'list-group' },
-									articles
+									'div',
+									{ className: 'panel-body' },
+									_react2.default.createElement(
+										'ul',
+										{ className: 'list-group' },
+										articles
+									)
 								)
 							)
 						)
 					)
-				)
-			);
+				);
+			}
 		}
+
 	});
 
 	module.exports = Results;
@@ -24334,18 +24346,41 @@
 
 	var _helpers2 = _interopRequireDefault(_helpers);
 
+	var _Results = __webpack_require__(210);
+
+	var _Results2 = _interopRequireDefault(_Results);
+
+	var _reactRouter = __webpack_require__(159);
+
+	var _reactRouter2 = _interopRequireDefault(_reactRouter);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Article = _react2.default.createClass({
 		displayName: 'Article',
 
 
+		getInitialState: function getInitialState() {
+			return {
+				button: this.props.button
+			};
+		},
+
 		handleClick: function handleClick() {
 
 			if (this.props.button == 'Save') {
 				_helpers2.default.save(this.props.title, this.props.url).then(function (res) {
 					return res;
-					console.log('this is returned res: ', res);
+				}.bind(this));
+			} else if (this.state.button == 'Remove') {
+				debugger;
+				var id = this.props.id;
+				_helpers2.default.remove(id).then(function (res) {
+					// return res
+					debugger;
+					this.setState({
+						button: 'Deleted'
+					});
 				}.bind(this));
 			}
 		},
@@ -24373,7 +24408,7 @@
 						_react2.default.createElement(
 							'button',
 							{ onClick: this.handleClick },
-							this.props.button
+							this.state.button
 						)
 					)
 				)
@@ -24412,7 +24447,7 @@
 			// debugger;
 			var encodedUrl = encodeURIComponent(url);
 			var saved = '/save/' + title + '/' + encodedUrl;
-			axios.post(saved).then(function (res) {
+			return axios.post(saved).then(function (res) {
 				return res;
 			}).catch(function (error) {
 				console.log(error);
@@ -24421,9 +24456,20 @@
 
 		getSaved: function getSaved(func) {
 			debugger;
-			axios.post('/saved').then(function (res) {
+			return axios.post('/saved').then(function (res) {
 				debugger;
 				func(res);
+				return res;
+			}).catch(function (error) {
+				console.log(error);
+			});
+		},
+
+		remove: function remove(id) {
+			debugger;
+			var remove = '/remove/' + id;
+			return axios.post(remove).then(function (res) {
+				debugger;
 				return res;
 			}).catch(function (error) {
 				console.log(error);

@@ -22,7 +22,7 @@ var helpers = {
 		// debugger;
 		var encodedUrl = encodeURIComponent(url);
 		var saved = '/save/' + title + '/' + encodedUrl;
-		axios.post(saved)
+		return axios.post(saved)
 		.then(function(res){
 			return res
 		}).catch(function(error){
@@ -32,9 +32,20 @@ var helpers = {
 
 	getSaved: function(func){
 		debugger;
-		axios.post('/saved').then(function(res){
+		return axios.post('/saved').then(function(res){
 			debugger;
 			func(res)
+			return res
+		}).catch(function(error){
+			console.log(error);
+		});
+	},
+
+	remove: function(id){
+		debugger;
+		var remove = '/remove/' + id;
+		return axios.post(remove).then(function(res){
+			debugger;
 			return res
 		}).catch(function(error){
 			console.log(error);

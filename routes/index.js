@@ -35,7 +35,21 @@ router.post('/saved', function(req, res, next) {
 
 	Articles.find({}).then(function(saved){
 			res.send(saved)
-		})
-})
+	});
+});
+
+router.post('/remove/:id', function(req, res, next) {
+
+	Articles.remove({
+		_id: req.params.id
+	}, function(err) {
+
+		if (err) {
+			console.log('Error removing: ', err);
+		}
+
+	res.end();
+	});
+});
 
 module.exports = router;
