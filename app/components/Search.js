@@ -16,7 +16,7 @@ var Search = React.createClass({
 	},
 	componentDidMount: function(){
 
-		debugger;
+		
 		var queryTerm = this.props.params.queryTerm;
 		var startYear = this.props.params.startYear;
 		var endYear = this.props.params.endYear;

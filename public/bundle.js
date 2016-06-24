@@ -24379,10 +24379,13 @@
 		},
 
 		handleClick: function handleClick() {
-
+			debugger;
 			if (this.props.button == 'Save') {
 				_helpers2.default.save(this.props.title, this.props.url).then(function (res) {
-					return res;
+					debugger;
+					this.setState({
+						button: 'Saved'
+					});
 				}.bind(this));
 			} else if (this.state.button == 'Remove') {
 
@@ -25839,7 +25842,7 @@
 	          { className: 'form-group col-sm-3 col-sm-offset-3' },
 	          React.createElement(
 	            'button',
-	            { disable: this.queryTerm, type: 'submit', className: 'btn btn-block btn-default' },
+	            { disable: this.queryTerm, type: 'submit', id: 'search', className: 'btn btn-block btn-default' },
 	            'Search NY Times'
 	          )
 	        )
@@ -25852,7 +25855,7 @@
 	          { className: 'form-group col-sm-3' },
 	          React.createElement(
 	            'button',
-	            { type: 'submit', className: 'btn btn-block btn-defualt' },
+	            { type: 'submit', id: 'save', className: 'btn btn-block btn-defualt' },
 	            'Show Saved Articles'
 	          )
 	        )
@@ -25895,7 +25898,6 @@
 		},
 		componentDidMount: function componentDidMount() {
 
-			debugger;
 			var queryTerm = this.props.params.queryTerm;
 			var startYear = this.props.params.startYear;
 			var endYear = this.props.params.endYear;

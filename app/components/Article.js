@@ -12,10 +12,13 @@ var Article = React.createClass({
 	},
 
 	handleClick: function() {
-
+		debugger;
 		if(this.props.button == 'Save'){
 			helpers.save(this.props.title, this.props.url).then(function(res){
-	    		return res
+	    		debugger;
+	    		this.setState({
+	    			button: 'Saved'
+	    		});
 	    		
     		}.bind(this));
 		}else if (this.state.button == 'Remove'){

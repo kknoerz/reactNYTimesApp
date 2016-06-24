@@ -54,12 +54,12 @@ var GetSearchTerm = React.createClass({
             <input placeholder="End Year"type="text" className="form-control" id="end" ref={this.getEndYear} required/>
           </div>
           <div className="form-group col-sm-3 col-sm-offset-3">
-            <button disable={this.queryTerm}type="submit" className="btn btn-block btn-default">Search NY Times</button>
+            <button disable={this.queryTerm}type="submit" id="search" className="btn btn-block btn-default">Search NY Times</button>
           </div>
         </form>
         <form onSubmit={this.showArticles}>
           <div className="form-group col-sm-3">
-            <button type="submit" className="btn btn-block btn-defualt">Show Saved Articles</button>
+            <button type="submit" id="save" className="btn btn-block btn-defualt">Show Saved Articles</button>
           </div>
         </form>
       </div>

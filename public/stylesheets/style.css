@@ -1,8 +1,45 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #eee;
 }
 
 a {
   color: #00B7FF;
+}
+
+.jumbotron {
+	background-color: #fff;
+}
+
+.jumbotron h1 {
+	font-family: 'Olde english';
+	text-align: center;
+    font-size: 6em;
+    color: #000;
+}
+
+.btn {
+	font-size: .75em;
+}
+
+.btn:hover {
+	color: #000;
+}
+
+#save {
+	background-color: #aaa;
+
+}
+
+.navbar-default {
+	background-color: #ccc;
+}
+
+span.btn button:hover {
+	color: #000;
+}
+
+span.btn button:visited {
+	background-color: #555;
 }
