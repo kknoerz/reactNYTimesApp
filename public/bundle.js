@@ -24218,10 +24218,8 @@
 		},
 
 		componentWillMount: function componentWillMount() {
-			debugger;
 
 			helpers.getSaved(function (saved) {
-				debugger;
 
 				this.setState({
 					queryResults: saved.data
@@ -24230,7 +24228,7 @@
 		},
 
 		render: function render() {
-			debugger;
+
 			return _react2.default.createElement(
 				'div',
 				{ className: 'row' },
@@ -24271,7 +24269,6 @@
 
 
 		getInitialState: function getInitialState() {
-			debugger;
 			return {
 				button: this.props.button,
 				queryResults: this.props.queryResults
@@ -24279,31 +24276,24 @@
 		},
 
 		componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-			// debugger;
 
 			this.setState({
 				queryResults: nextProps.queryResults
 			});
-
-			// debugger;
 		},
 
 		remove: function remove(val) {
-			debugger;
 			// var searchAndDestroy = this.state.queryResults.find(title);
 			// this.state.queryResults.splice(searchAndDestroy, 1);
 
-			// debugger;
 			// this.forceUpdate()
 			var destroy = this.state.queryResults;
 
 			var search = destroy.map(function (e) {
 				return e.title;
 			}).indexOf(val);
-			debugger;
 
 			destroy.splice(search, 1);
-			debugger;
 			this.setState({
 				queryResults: destroy
 			});
@@ -24313,8 +24303,6 @@
 
 			if (this.state.queryResults) {
 				var articles = [];
-
-				debugger;
 
 				this.state.queryResults.forEach(function (article) {
 
@@ -24397,11 +24385,10 @@
 					return res;
 				}.bind(this));
 			} else if (this.state.button == 'Remove') {
-				debugger;
+
 				var id = this.props.id;
 				_helpers2.default.remove(id).then(function (res) {
 
-					debugger;
 					this.setState({
 						button: 'Deleted'
 					});
@@ -24462,9 +24449,9 @@
 
 	var helpers = {
 		getAllArticles: function getAllArticles(queryTerm, startYear, endYear) {
-			debugger;
+
 			return axios.all([getArticles(queryTerm, startYear, endYear)]).then(function (arr) {
-				debugger;
+
 				return {
 
 					queryResults: arr[0].data.response.docs
@@ -24473,7 +24460,7 @@
 		},
 
 		save: function save(title, url) {
-			// debugger;
+			//
 			var encodedUrl = encodeURIComponent(url);
 			var saved = '/save/' + title + '/' + encodedUrl;
 			return axios.post(saved).then(function (res) {
@@ -24484,9 +24471,9 @@
 		},
 
 		getSaved: function getSaved(func) {
-			debugger;
+
 			return axios.post('/saved').then(function (res) {
-				debugger;
+
 				func(res);
 				return res;
 			}).catch(function (error) {
@@ -24495,10 +24482,10 @@
 		},
 
 		remove: function remove(id) {
-			debugger;
+
 			var remove = '/remove/' + id;
 			return axios.post(remove).then(function (res) {
-				debugger;
+
 				return res;
 			}).catch(function (error) {
 				console.log(error);
@@ -25812,14 +25799,12 @@
 	  },
 
 	  handleSubmit: function handleSubmit() {
-	    // debugger;
 	    var queryTerm = this.queryTerm.value;
 	    var startYear = this.startYear.value;
 	    var endYear = this.endYear.value;
 	    this.queryTerm.value = '';
 	    this.startYear.value = '';
 	    this.endYear.value = '';
-	    debugger;
 	    this.history.pushState(null, "search/" + queryTerm + "/" + startYear + "/" + endYear);
 	  },
 

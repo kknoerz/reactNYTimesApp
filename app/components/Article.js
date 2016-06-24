@@ -19,11 +19,11 @@ var Article = React.createClass({
 	    		
     		}.bind(this));
 		}else if (this.state.button == 'Remove'){
-			debugger;
+		
 			var id = this.props.id
 			helpers.remove(id).then(function(res){
 				
-				debugger;
+			
 				this.setState({
 					button: 'Deleted'
 				});	

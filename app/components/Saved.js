@@ -12,10 +12,10 @@ var Saved = React.createClass({
 	},	
 
 	componentWillMount: function(){
-		debugger;
+		
 
 		helpers.getSaved(function(saved){
-			debugger;
+			
 
 			this.setState({
 				queryResults: saved.data			
@@ -25,7 +25,7 @@ var Saved = React.createClass({
 	},
 
 	render: function(){
-		debugger;
+		
 		return (
 
 			<div className="row">

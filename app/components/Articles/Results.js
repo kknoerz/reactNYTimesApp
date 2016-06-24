@@ -5,7 +5,6 @@ import helpers from '../../utils/helpers'
 var Results = React.createClass({
 
 	getInitialState: function(){
-		debugger;
 		return {
 			button: this.props.button,
 			queryResults: this.props.queryResults
@@ -13,31 +12,28 @@ var Results = React.createClass({
 	},
 
 	componentWillReceiveProps: function(nextProps){
-		// debugger;
+		
 
 		this.setState({
 			queryResults: nextProps.queryResults
 		});	
 		
-		// debugger;
+		
 	},
 
 	remove: function(val){
-		debugger;
 		// var searchAndDestroy = this.state.queryResults.find(title);
 		// this.state.queryResults.splice(searchAndDestroy, 1);
 
-		// debugger;
+		
 		// this.forceUpdate()
 		var destroy = this.state.queryResults;
 
 		var search = destroy.map(function(e) { 
 			return e.title; 
 		}).indexOf(val);
-		debugger;
 
 		destroy.splice(search, 1);
-		debugger;
 		this.setState({
 			queryResults: destroy
 		});
@@ -49,7 +45,7 @@ var Results = React.createClass({
 		if(this.state.queryResults) {
 			var articles = []
 
-			debugger;
+
 
 			this.state.queryResults.forEach(function(article){
 

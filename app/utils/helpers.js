@@ -10,10 +10,10 @@ function getArticles(queryTerm, startYear, endYear){
 
 var helpers = {
 	getAllArticles: function(queryTerm, startYear, endYear){
-		debugger;
+		
 		return axios.all([getArticles(queryTerm, startYear, endYear)])
 			.then(function(arr){
-				debugger;
+				
 				return {
 
 				queryResults: arr[0].data.response.docs
@@ -22,7 +22,7 @@ var helpers = {
 	},
 
 	save: function(title, url){
-		// debugger;
+		// 
 		var encodedUrl = encodeURIComponent(url);
 		var saved = '/save/' + title + '/' + encodedUrl;
 		return axios.post(saved)
@@ -34,9 +34,9 @@ var helpers = {
 	},
 
 	getSaved: function(func){
-		debugger;
+		
 		return axios.post('/saved').then(function(res){
-			debugger;
+			
 			func(res)
 			return res
 		}).catch(function(error){
@@ -45,10 +45,10 @@ var helpers = {
 	},
 
 	remove: function(id){
-		debugger;
+		
 		var remove = '/remove/' + id;
 		return axios.post(remove).then(function(res){
-			debugger;
+			
 			return res
 		}).catch(function(error){
 			console.log(error);

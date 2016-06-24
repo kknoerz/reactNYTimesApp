@@ -27,14 +27,12 @@ var GetSearchTerm = React.createClass({
   },
 
   handleSubmit: function(){
-    // debugger;
     var queryTerm = this.queryTerm.value; 
     var startYear = this.startYear.value;
     var endYear = this.endYear.value;
     this.queryTerm.value = '';
     this.startYear.value = '';
     this.endYear.value = '';
-    debugger;
     this.history.pushState(null, "search/" + queryTerm + "/" + startYear + "/" + endYear);
   },
 
