@@ -1,6 +1,6 @@
 import React from 'react';
 import helpers from '../utils/helpers.js';
-import Results from './Articles/Results';
+import Results from './Articles/Results.js';
 import Router from 'react-router';
 
 var Article = React.createClass({
@@ -22,12 +22,16 @@ var Article = React.createClass({
 			debugger;
 			var id = this.props.id
 			helpers.remove(id).then(function(res){
-				// return res
+				
 				debugger;
 				this.setState({
 					button: 'Deleted'
-				})		
+				});	
+    		
     		}.bind(this));
+
+    		var title = this.props.title
+			this.props.remove(title);	
 		}
    },
 

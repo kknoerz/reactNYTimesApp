@@ -1,5 +1,6 @@
 import React from 'react';
-import Article from '../Article'
+import Article from '../Article';
+import helpers from '../../utils/helpers'
 
 var Results = React.createClass({
 
@@ -21,9 +22,26 @@ var Results = React.createClass({
 		// debugger;
 	},
 
-	remove: function(){
+	remove: function(val){
 		debugger;
-		
+		// var searchAndDestroy = this.state.queryResults.find(title);
+		// this.state.queryResults.splice(searchAndDestroy, 1);
+
+		// debugger;
+		// this.forceUpdate()
+		var destroy = this.state.queryResults;
+
+		var search = destroy.map(function(e) { 
+			return e.title; 
+		}).indexOf(val);
+		debugger;
+
+		destroy.splice(search, 1);
+		debugger;
+		this.setState({
+			queryResults: destroy
+		});
+
 	},
 
 	render: function(){
@@ -38,7 +56,7 @@ var Results = React.createClass({
 				if(article.headline != undefined) {
 					articles.push(<Article button={this.props.button}title={article.headline.main} url={article.web_url} key={article._id} id={article._id}/>)
 				} else if (article.title) {
-					articles.push(<Article button={this.props.button}title={article.title} url={article.url} key={article._id} id={article._id}/>)
+					articles.push(<Article button={this.props.button}title={article.title} url={article.url} key={article._id} id={article._id} remove={this.remove}/>)
 				}				
 				
 			}.bind(this));

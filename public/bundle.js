@@ -24169,9 +24169,9 @@
 	var React = __webpack_require__(1);
 
 	var Main = __webpack_require__(232);
-	var Home = __webpack_require__(234);
+	var Home = __webpack_require__(235);
 
-	var Search = __webpack_require__(235);
+	var Search = __webpack_require__(234);
 
 
 	var Router = __webpack_require__(159);
@@ -24260,6 +24260,10 @@
 
 	var _Article2 = _interopRequireDefault(_Article);
 
+	var _helpers = __webpack_require__(212);
+
+	var _helpers2 = _interopRequireDefault(_helpers);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Results = _react2.default.createClass({
@@ -24284,8 +24288,25 @@
 			// debugger;
 		},
 
-		remove: function remove() {
+		remove: function remove(val) {
 			debugger;
+			// var searchAndDestroy = this.state.queryResults.find(title);
+			// this.state.queryResults.splice(searchAndDestroy, 1);
+
+			// debugger;
+			// this.forceUpdate()
+			var destroy = this.state.queryResults;
+
+			var search = destroy.map(function (e) {
+				return e.title;
+			}).indexOf(val);
+			debugger;
+
+			destroy.splice(search, 1);
+			debugger;
+			this.setState({
+				queryResults: destroy
+			});
 		},
 
 		render: function render() {
@@ -24300,7 +24321,7 @@
 					if (article.headline != undefined) {
 						articles.push(_react2.default.createElement(_Article2.default, { button: this.props.button, title: article.headline.main, url: article.web_url, key: article._id, id: article._id }));
 					} else if (article.title) {
-						articles.push(_react2.default.createElement(_Article2.default, { button: this.props.button, title: article.title, url: article.url, key: article._id, id: article._id }));
+						articles.push(_react2.default.createElement(_Article2.default, { button: this.props.button, title: article.title, url: article.url, key: article._id, id: article._id, remove: this.remove }));
 					}
 				}.bind(this));
 
@@ -24379,12 +24400,15 @@
 				debugger;
 				var id = this.props.id;
 				_helpers2.default.remove(id).then(function (res) {
-					// return res
+
 					debugger;
 					this.setState({
 						button: 'Deleted'
 					});
 				}.bind(this));
+
+				var title = this.props.title;
+				this.props.remove(title);
 			}
 		},
 
@@ -25752,7 +25776,7 @@
 
 	'use strict';
 
-	var _Search = __webpack_require__(235);
+	var _Search = __webpack_require__(234);
 
 	var _Search2 = _interopRequireDefault(_Search);
 
@@ -25858,36 +25882,6 @@
 /* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
-
-	var React = __webpack_require__(1);
-
-	// Here we created the home component
-	var Home = React.createClass({
-		displayName: "Home",
-
-		render: function render() {
-			return(
-
-				// Here we use className instead of class because class is a reserved name in Javascript
-				// The converter will take className and call it class.
-				React.createElement(
-					"h2",
-					{ className: "text-center" },
-					"Search NY Times Articles by topic above."
-				)
-			);
-		}
-
-	});
-
-	// Exporting the component effectively means we can deploy the component in any other file.
-	module.exports = Home;
-
-/***/ },
-/* 235 */
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 
 	var _Saved = __webpack_require__(209);
@@ -25945,6 +25939,36 @@
 	});
 
 	module.exports = Search;
+
+/***/ },
+/* 235 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	// Here we created the home component
+	var Home = React.createClass({
+		displayName: "Home",
+
+		render: function render() {
+			return(
+
+				// Here we use className instead of class because class is a reserved name in Javascript
+				// The converter will take className and call it class.
+				React.createElement(
+					"h2",
+					{ className: "text-center" },
+					"Search NY Times Articles by topic above."
+				)
+			);
+		}
+
+	});
+
+	// Exporting the component effectively means we can deploy the component in any other file.
+	module.exports = Home;
 
 /***/ }
 /******/ ]);
