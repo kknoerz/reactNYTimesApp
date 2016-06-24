@@ -24275,12 +24275,16 @@
 		},
 
 		componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-			debugger;
+			// debugger;
 
 			this.setState({
 				queryResults: nextProps.queryResults
 			});
 
+			// debugger;
+		},
+
+		remove: function remove() {
 			debugger;
 		},
 
@@ -24327,7 +24331,6 @@
 				);
 			}
 		}
-
 	});
 
 	module.exports = Results;
@@ -25773,35 +25776,25 @@
 	  },
 
 	  getQuery: function getQuery(query) {
-	    this.setState({
-	      queryTerm: query
-	    });
+	    this.queryTerm = query;
 	  },
 
 	  getStartYear: function getStartYear(start) {
-	    this.setState({
-	      startYear: start
-	    });
+	    this.startYear = start;
 	  },
 
 	  getEndYear: function getEndYear(end) {
-	    this.setState({
-	      startYear: start
-	    });
+	    this.endYear = end;
 	  },
 
 	  handleSubmit: function handleSubmit() {
 	    // debugger;
-	    var queryTerm = this.state.queryTerm;
-	    var startYear = this.state.startYear;
-	    var endYear = this.state.endYear;
-
-	    this.setState({
-	      queryTerm: '',
-	      startYear: '',
-	      endYear: ''
-	    });
-
+	    var queryTerm = this.queryTerm.value;
+	    var startYear = this.startYear.value;
+	    var endYear = this.endYear.value;
+	    this.queryTerm.value = '';
+	    this.startYear.value = '';
+	    this.endYear.value = '';
 	    debugger;
 	    this.history.pushState(null, "search/" + queryTerm + "/" + startYear + "/" + endYear);
 	  },
@@ -25820,24 +25813,24 @@
 	        React.createElement(
 	          'div',
 	          { className: 'form-group col-sm-12' },
-	          React.createElement('input', { placeholder: 'Search: ', type: 'text', className: 'form-control', id: 'query', ref: this.getQuery, required: true })
+	          React.createElement('input', { placeholder: 'Search: ', type: 'text', className: 'form-control', id: 'query', ref: this.getQuery })
 	        ),
 	        React.createElement(
 	          'div',
 	          { className: 'form-group col-sm-12' },
-	          React.createElement('input', { placeholder: 'Start Year', type: 'text', className: 'form-control', id: 'start', ref: this.getStartYear, required: true })
+	          React.createElement('input', { placeholder: 'Start Year', type: 'text', className: 'form-control', id: 'start', ref: this.getStartYear })
 	        ),
 	        React.createElement(
 	          'div',
 	          { className: 'form-group col-sm-12' },
-	          React.createElement('input', { placeholder: 'End Year', type: 'text', className: 'form-control', id: 'end', ref: this.getEndYear, required: true })
+	          React.createElement('input', { placeholder: 'End Year', type: 'text', className: 'form-control', id: 'end', ref: this.getEndYear })
 	        ),
 	        React.createElement(
 	          'div',
 	          { className: 'form-group col-sm-3 col-sm-offset-3' },
 	          React.createElement(
 	            'button',
-	            { disable: this.state.queryTerm == '' || this.state.startYear == '' || this.state.endYear == '', type: 'submit', className: 'btn btn-block btn-default' },
+	            { disable: this.queryTerm, type: 'submit', className: 'btn btn-block btn-default' },
 	            'Search NY Times'
 	          )
 	        )

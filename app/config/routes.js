@@ -16,11 +16,8 @@ var IndexRoute	= Router.IndexRoute
 module.exports = (
 
 	<Route path="/" component={Main}>
-	
 		<Route path='search/:queryTerm/:startYear/:endYear' component={Search} />
 		<Route path='saved' component={Saved} />
 		<IndexRoute component={Home} />
 	</Route>
-
-
 );

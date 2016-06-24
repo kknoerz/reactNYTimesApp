@@ -6,44 +6,34 @@ var GetSearchTerm = React.createClass({
   mixins: [Router.History],
 
   getInitialState: function(){
-    return{
+    return {
         queryTerm: '',
         startYear: '',
         endYear: ''
     }
+
   },
 
   getQuery: function(query){
-    this.setState({
-      queryTerm: query
-    });
-    
+    this.queryTerm = query;
   },
 
   getStartYear: function(start){
-    this.setState({
-      startYear: start
-    });
+    this.startYear = start;
   },
 
   getEndYear: function(end){
-    this.setState({
-      startYear: start
-    });
+    this.endYear = end;
   },
 
   handleSubmit: function(){
     // debugger;
-    var queryTerm = this.state.queryTerm; 
-    var startYear = this.state.startYear;
-    var endYear = this.state.endYear;
-
-    this.setState({
-        queryTerm: '',
-        startYear: '',
-        endYear: ''
-    });
-
+    var queryTerm = this.queryTerm.value; 
+    var startYear = this.startYear.value;
+    var endYear = this.endYear.value;
+    this.queryTerm.value = '';
+    this.startYear.value = '';
+    this.endYear.value = '';
     debugger;
     this.history.pushState(null, "search/" + queryTerm + "/" + startYear + "/" + endYear);
   },
@@ -57,16 +47,16 @@ var GetSearchTerm = React.createClass({
       <div className="col-sm-12">
         <form onSubmit={this.handleSubmit}>
           <div className="form-group col-sm-12">
-            <input placeholder="Search: " type="text" className="form-control" id="query" ref={this.getQuery} required/>
+            <input placeholder="Search: " type="text" className="form-control" id="query" ref={this.getQuery} />
           </div>
           <div className="form-group col-sm-12">
-            <input placeholder="Start Year"type="text" className="form-control" id="start" ref={this.getStartYear} required/>
+            <input placeholder="Start Year"type="text" className="form-control" id="start" ref={this.getStartYear} />
           </div>
           <div className="form-group col-sm-12">
-            <input placeholder="End Year"type="text" className="form-control" id="end" ref={this.getEndYear} required/>
+            <input placeholder="End Year"type="text" className="form-control" id="end" ref={this.getEndYear} />
           </div>
           <div className="form-group col-sm-3 col-sm-offset-3">
-            <button disable={this.state.queryTerm == '' || this.state.startYear == ''|| this.state.endYear == ''}type="submit" className="btn btn-block btn-default">Search NY Times</button>
+            <button disable={this.queryTerm}type="submit" className="btn btn-block btn-default">Search NY Times</button>
           </div>
         </form>
         <form onSubmit={this.showArticles}>

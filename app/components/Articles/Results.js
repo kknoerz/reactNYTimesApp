@@ -12,13 +12,18 @@ var Results = React.createClass({
 	},
 
 	componentWillReceiveProps: function(nextProps){
-		debugger;
+		// debugger;
 
 		this.setState({
 			queryResults: nextProps.queryResults
 		});	
 		
+		// debugger;
+	},
+
+	remove: function(){
 		debugger;
+		
 	},
 
 	render: function(){
@@ -54,10 +59,7 @@ var Results = React.createClass({
 				</div>
 			)
 		}
-
 	}
-		
-
 });
 
 module.exports = Results;
