@@ -25837,17 +25837,17 @@
 	        React.createElement(
 	          'div',
 	          { className: 'form-group col-sm-12' },
-	          React.createElement('input', { placeholder: 'Search: ', type: 'text', className: 'form-control', id: 'query', ref: this.getQuery })
+	          React.createElement('input', { placeholder: 'Search: ', type: 'text', className: 'form-control', id: 'query', ref: this.getQuery, required: true })
 	        ),
 	        React.createElement(
 	          'div',
 	          { className: 'form-group col-sm-12' },
-	          React.createElement('input', { placeholder: 'Start Year', type: 'text', className: 'form-control', id: 'start', ref: this.getStartYear })
+	          React.createElement('input', { placeholder: 'Start Year', type: 'text', className: 'form-control', id: 'start', ref: this.getStartYear, required: true })
 	        ),
 	        React.createElement(
 	          'div',
 	          { className: 'form-group col-sm-12' },
-	          React.createElement('input', { placeholder: 'End Year', type: 'text', className: 'form-control', id: 'end', ref: this.getEndYear })
+	          React.createElement('input', { placeholder: 'End Year', type: 'text', className: 'form-control', id: 'end', ref: this.getEndYear, required: true })
 	        ),
 	        React.createElement(
 	          'div',

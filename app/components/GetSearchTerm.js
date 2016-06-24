@@ -47,13 +47,13 @@ var GetSearchTerm = React.createClass({
       <div className="col-sm-12">
         <form onSubmit={this.handleSubmit}>
           <div className="form-group col-sm-12">
-            <input placeholder="Search: " type="text" className="form-control" id="query" ref={this.getQuery} />
+            <input placeholder="Search: " type="text" className="form-control" id="query" ref={this.getQuery} required/>
           </div>
           <div className="form-group col-sm-12">
-            <input placeholder="Start Year"type="text" className="form-control" id="start" ref={this.getStartYear} />
+            <input placeholder="Start Year"type="text" className="form-control" id="start" ref={this.getStartYear} required/>
           </div>
           <div className="form-group col-sm-12">
-            <input placeholder="End Year"type="text" className="form-control" id="end" ref={this.getEndYear} />
+            <input placeholder="End Year"type="text" className="form-control" id="end" ref={this.getEndYear} required/>
           </div>
           <div className="form-group col-sm-3 col-sm-offset-3">
             <button disable={this.queryTerm}type="submit" className="btn btn-block btn-default">Search NY Times</button>
