@@ -6,7 +6,13 @@ var Articles = require('../models/schema');
 //Database configuration
 var mongojs = require('mongojs');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/reactNYTimes');
+
+if (process.env.MONGODB_URI){
+	mongoose.connect(process.env.MONGODB_URI);
+} else {
+	mongoose.connect('mongodb://localhost/reactNYTimes');	
+}
+
 var db = mongoose.connection;
 
 db.on('error', function (err) {
