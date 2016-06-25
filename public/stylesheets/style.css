@@ -2,8 +2,13 @@
 body {
 	padding: 50px;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-	background-color: #eeeeee;
+	background-color: #c7a047;
 	background-image: url("http://www.transparenttextures.com/patterns/paper.png");
+    border-width: 2px;
+    border-color: #5a5d14;
+    border-style: solid;
+    box-shadow: 0px 0px 30px #404209 inset;
+
 
 }
 
@@ -12,7 +17,7 @@ a {
 }
 
 .jumbotron {
-	background-color: #ffffff;
+	background-color: rgba(214, 192, 141, 0);
 	background-image: url("http://www.transparenttextures.com/patterns/natural-paper.png");
 
 }
@@ -21,7 +26,7 @@ a {
 	font-family: 'Olde english';
 	text-align: center;
     font-size: 6em;
-    color: #000;
+    color: #502403;
 }
 
 .btn {
@@ -32,28 +37,25 @@ a {
 	color: #000;
 }
 
+#search {
+    background-color: #8e6b03;
+    border-color: #ad892a;
+    font-family: 'Times New Roman';
+    font-size: 1em;
+}
+
 #save {
-	border: 1px solid #999;
-    background-color: #ccc;
+    border: 1px solid #ead38e;
+    background-color: #e6c87f;
 	font-family: 'Times New Roman';
     font-size: 1em;
 
 }
 
-#search {
-	background-color: #97a5af;
-    border-color: #8e9aa2;
-    font-family: 'Times New Roman';
-    font-size: 1em;
-}
-
 .navbar-default {
-	border: 1px solid #aaa;
-	background-color: #ffffff;
-	background-image: url("http://www.transparenttextures.com/patterns/natural-paper.png");
-
-	
-
+	background-color: #c7a047;
+	background-image: url("http://www.transparenttextures.com/patterns/paper.png");
+    border-style: solid;
 }
 
 #home{
@@ -64,8 +66,15 @@ a {
 
 
 .form-control {
+	border: 0px;
 	font-family: 'Times New Roman';
     font-size: 1.5em;
+    background-color: rgb(214, 192, 141);
+	background-image: url("http://www.transparenttextures.com/patterns/paper.png");
+}
+
+.form-control, input {
+	color: #502403;
 }
 
 span.btn button:hover {
@@ -77,20 +86,21 @@ span.btn button:visited {
 }
 
 .panel-primary {
-	border-color: #aaa;
-	background-color: #ccc;
+    border-color: #502403;
+    background-color: #8e6b03;
 }
 
 .list-item {
-	border: 1px solid #999;
-	background-color: #fff;
+	border: 1px solid #dabb1a !important;
+	background-color: #f1e9bf;
 	background-image: url("http://www.transparenttextures.com/patterns/paper.png");
 
 }
 
 .list-item a h4 {
+	color: #502403;
 	font-size: 1.75em;
-	margin-top: 15px;
+	margin-top: 20px;
 	font-family: 'Time New Roman'; 
 }
 

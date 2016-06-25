@@ -24305,11 +24305,11 @@
 				var articles = [];
 
 				this.state.queryResults.forEach(function (article) {
-					// debugger;
+
 					article.pub_date = new Date(article.pub_date);
 					var s = String(article.pub_date);
 					article.pub_date = s.substring(0, 15);
-					// debugger;
+
 					// article.pub_date = article.pub_date.substring(0, article.pub_date.indexOf('T'));
 
 					if (article.headline != undefined) {
