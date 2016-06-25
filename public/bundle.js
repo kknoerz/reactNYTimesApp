@@ -25871,7 +25871,7 @@
 	          React.createElement(
 	            'button',
 	            { type: 'submit', id: 'save', className: 'btn btn-block btn-defualt' },
-	            'Show Saved Articles'
+	            'Saved Articles'
 	          )
 	        )
 	      )

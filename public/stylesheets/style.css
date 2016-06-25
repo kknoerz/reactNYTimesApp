@@ -33,23 +33,36 @@ a {
 	font-size: .75em;
 }
 
-.btn:hover {
+/*.btn:hover {
 	color: #000;
-}
+}*/
 
 #search {
-    background-color: #8e6b03;
-    border-color: #ad892a;
+	font-size: 1.25em !important;
+    background-color: rgb(181, 143, 31);
+    border-color: rgba(165, 134, 54, 0);
     font-family: 'Times New Roman';
     font-size: 1em;
+    background-image: url("http://www.transparenttextures.com/patterns/paper.png");
+}
+
+#search:hover {
+	background-color: #f5de9e;
+    color: #502403;
 }
 
 #save {
-    border: 1px solid #ead38e;
-    background-color: #e6c87f;
+	font-size: 1.25em !important;
+    background-color: rgba(230, 200, 127, 0.28);
 	font-family: 'Times New Roman';
     font-size: 1em;
+    background-image: url("http://www.transparenttextures.com/patterns/paper.png");
 
+}
+
+#save:hover {
+    background-color: rgb(124, 93, 3);
+    color: #f7ebce;
 }
 
 .navbar-default {
@@ -67,9 +80,9 @@ a {
 
 .form-control {
 	border: 0px;
-	font-family: 'Times New Roman';
-    font-size: 1.5em;
-    background-color: rgb(214, 192, 141);
+	font-family: 'Tangerine', cursive;
+    font-size: 2.5em;
+    background-color: rgb(232, 224, 204);
 	background-image: url("http://www.transparenttextures.com/patterns/paper.png");
 }
 
@@ -86,14 +99,16 @@ span.btn button:visited {
 }
 
 .panel-primary {
-    border-color: #502403;
+    border-color: #90801c;
     background-color: #8e6b03;
+    box-shadow: 0px 0px 30px #404209 inset;
+    border-width: 2px;
 }
 
 .list-item {
-	border: 1px solid #dabb1a !important;
-	background-color: #f1e9bf;
-	background-image: url("http://www.transparenttextures.com/patterns/paper.png");
+	border: 1px solid rgba(255, 240, 207, 0.55) !important;
+    background-color: rgba(255, 240, 207, 0.55);
+	background-image: url("http://www.transparenttextures.com/patterns/natural-paper.png");
 
 }
 
@@ -105,9 +120,11 @@ span.btn button:visited {
 }
 
 .list-item h1 {
+	font-size: 2em;
+	font-family: 'Tangerine', cursive;
 	margin-top: 5px;
     text-align: center;
-    color: #999;
+    color: #734e27;
 }
 
 

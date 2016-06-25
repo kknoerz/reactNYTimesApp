@@ -59,7 +59,7 @@ var GetSearchTerm = React.createClass({
         </form>
         <form onSubmit={this.showArticles}>
           <div className="form-group col-sm-3">
-            <button type="submit" id="save" className="btn btn-block btn-defualt">Show Saved Articles</button>
+            <button type="submit" id="save" className="btn btn-block btn-defualt">Saved Articles</button>
           </div>
         </form>
       </div>
