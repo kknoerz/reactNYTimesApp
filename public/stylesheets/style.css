@@ -89,9 +89,15 @@ span.btn button:visited {
 }
 
 .list-item a h4 {
-	font-size: 2em;
+	font-size: 1.75em;
 	margin-top: 15px;
 	font-family: 'Time New Roman'; 
+}
+
+.list-item h1 {
+	margin-top: 5px;
+    text-align: center;
+    color: #999;
 }
 
 

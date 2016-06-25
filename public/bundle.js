@@ -24305,11 +24305,17 @@
 				var articles = [];
 
 				this.state.queryResults.forEach(function (article) {
+					// debugger;
+					article.pub_date = new Date(article.pub_date);
+					var s = String(article.pub_date);
+					article.pub_date = s.substring(0, 15);
+					// debugger;
+					// article.pub_date = article.pub_date.substring(0, article.pub_date.indexOf('T'));
 
 					if (article.headline != undefined) {
-						articles.push(_react2.default.createElement(_Article2.default, { button: this.props.button, title: article.headline.main, url: article.web_url, key: article._id, id: article._id }));
+						articles.push(_react2.default.createElement(_Article2.default, { button: this.props.button, title: article.headline.main, url: article.web_url, key: article._id, id: article._id, pub_date: article.pub_date }));
 					} else if (article.title) {
-						articles.push(_react2.default.createElement(_Article2.default, { button: this.props.button, title: article.title, url: article.url, key: article._id, id: article._id, remove: this.remove }));
+						articles.push(_react2.default.createElement(_Article2.default, { button: this.props.button, title: article.title, url: article.url, key: article._id, id: article._id, pub_date: article.pub_date, remove: this.remove }));
 					}
 				}.bind(this));
 
@@ -24379,10 +24385,11 @@
 		},
 
 		handleClick: function handleClick() {
-			debugger;
+			// debugger;
 			if (this.props.button == 'Save') {
-				_helpers2.default.save(this.props.title, this.props.url).then(function (res) {
-					debugger;
+				debugger;
+				_helpers2.default.save(this.props.title, this.props.url, this.props.pub_date).then(function (res) {
+					// debugger;
 					this.setState({
 						button: 'Saved'
 					});
@@ -24415,6 +24422,12 @@
 						{ style: { textAlign: 'center' } },
 						this.props.title
 					)
+				),
+				_react2.default.createElement(
+					'h1',
+					{ style: { textAlign: 'center' } },
+					'Published on: ',
+					this.props.pub_date
 				),
 				_react2.default.createElement(
 					'div',
@@ -24454,7 +24467,7 @@
 		getAllArticles: function getAllArticles(queryTerm, startYear, endYear) {
 
 			return axios.all([getArticles(queryTerm, startYear, endYear)]).then(function (arr) {
-
+				debugger;
 				return {
 
 					queryResults: arr[0].data.response.docs
@@ -24462,11 +24475,13 @@
 			});
 		},
 
-		save: function save(title, url) {
+		save: function save(title, url, pub) {
 			//
 			var encodedUrl = encodeURIComponent(url);
-			var saved = '/save/' + title + '/' + encodedUrl;
+			var saved = '/save/' + title + '/' + encodedUrl + '/' + pub;
+			debugger;
 			return axios.post(saved).then(function (res) {
+				debugger;
 				return res;
 			}).catch(function (error) {
 				console.log(error);
@@ -25903,7 +25918,7 @@
 			var endYear = this.props.params.endYear;
 
 			helpers.getAllArticles(queryTerm, startYear, endYear).then(function (data) {
-
+				debugger;
 				this.setState({
 					queryResults: data.queryResults
 

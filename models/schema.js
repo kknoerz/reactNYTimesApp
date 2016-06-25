@@ -12,6 +12,12 @@ var schema = new Schema({
 		type: String,
 		trim: true,
 		required: true
+	},
+
+	pub_date: {
+		type: String,
+		trim: true,
+		required: true
 	}
 })
 

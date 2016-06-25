@@ -27,10 +27,12 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-router.post('/save/:title/:url*', function(req, res, next) {
+router.post('/save/:title/:url/:pub', function(req, res, next) {
+	console.log('This is req.params in /save: ', req.params)
 	Articles.create({
 		title: req.params.title,
-		url: req.params.url
+		url: req.params.url,
+		pub_date: req.params.pub
 	}, function(err){
 		console.log('Error saving: ', err);
 		res.end();

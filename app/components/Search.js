@@ -23,7 +23,7 @@ var Search = React.createClass({
 
 		helpers.getAllArticles(queryTerm, startYear, endYear)
 		.then(function(data){
-
+			debugger;
 			this.setState({
 				queryResults: data.queryResults
 				

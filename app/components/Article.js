@@ -12,10 +12,11 @@ var Article = React.createClass({
 	},
 
 	handleClick: function() {
-		debugger;
+		// debugger;
 		if(this.props.button == 'Save'){
-			helpers.save(this.props.title, this.props.url).then(function(res){
-	    		debugger;
+			debugger;
+			helpers.save(this.props.title, this.props.url, this.props.pub_date).then(function(res){
+	    		// debugger;
 	    		this.setState({
 	    			button: 'Saved'
 	    		});
@@ -45,6 +46,7 @@ var Article = React.createClass({
 				<a href={this.props.url} target="_blank" style={{textDecoration:"none"}}>
 					<h4 style={{textAlign:'center'}}>{this.props.title}</h4>				
 				</a>
+				<h1 style={{textAlign:'center'}}>Published on: {this.props.pub_date}</h1>				
 				<div style={{display:'block', textAlign:'center'}}>				
 					<span className="btn">
 						<button onClick={this.handleClick}>
