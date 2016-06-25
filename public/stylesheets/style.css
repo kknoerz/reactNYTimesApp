@@ -1,15 +1,21 @@
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #eee;
+	padding: 50px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background-color: #eee;
+	background-color: #eeeeee;
+	background-image: url("http://www.transparenttextures.com/patterns/paper.png");
+
 }
 
 a {
-  color: #00B7FF;
+	color: #333;
 }
 
 .jumbotron {
-	background-color: #fff;
+	background-color: #ffffff;
+	background-image: url("http://www.transparenttextures.com/patterns/natural-paper.png");
+
 }
 
 .jumbotron h1 {
@@ -28,12 +34,32 @@ a {
 }
 
 #save {
-	background-color: #aaa;
+	border: 1px solid #999;
+    background-color: #ccc;
+	font-family: 'Times New Roman';
+    font-size: 1em;
 
 }
 
+#search {
+	background-color: #97a5af;
+    border-color: #8e9aa2;
+    font-family: 'Times New Roman';
+    font-size: 1em;
+}
+
 .navbar-default {
-	background-color: #ccc;
+	border: 1px solid #aaa;
+	background-color: #ffffff;
+	background-image: url("http://www.transparenttextures.com/patterns/natural-paper.png");
+
+	
+
+}
+
+.form-control {
+	font-family: 'Times New Roman';
+    font-size: 1.5em;
 }
 
 span.btn button:hover {
@@ -43,3 +69,25 @@ span.btn button:hover {
 span.btn button:visited {
 	background-color: #555;
 }
+
+.panel-primary {
+	border-color: #aaa;
+	background-color: #ccc;
+}
+
+.list-item {
+	background-color: #fff;
+	border: 1px solid #999;
+	background-image: url("http://www.transparenttextures.com/patterns/handmade-paper.png");
+
+}
+
+.list-item a h4 {
+	font-size: 2em;
+	margin-top: 15px;
+	font-family: 'Time New Roman'; 
+}
+
+
+
+
