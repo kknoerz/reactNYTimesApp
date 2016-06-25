@@ -25946,7 +25946,7 @@
 				// The converter will take className and call it class.
 				React.createElement(
 					"h2",
-					{ className: "text-center" },
+					{ id: "home", className: "text-center" },
 					"Search NY Times Articles by topic above."
 				)
 			);

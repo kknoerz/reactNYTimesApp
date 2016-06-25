@@ -7,7 +7,7 @@ var Home = React.createClass({
   
 			// Here we use className instead of class because class is a reserved name in Javascript
 			// The converter will take className and call it class.
-			<h2 className="text-center">
+			<h2 id="home" className="text-center">
 				Search NY Times Articles by topic above.
 			</h2>
 		)
