@@ -24467,7 +24467,7 @@
 		getAllArticles: function getAllArticles(queryTerm, startYear, endYear) {
 
 			return axios.all([getArticles(queryTerm, startYear, endYear)]).then(function (arr) {
-				debugger;
+
 				return {
 
 					queryResults: arr[0].data.response.docs
@@ -24479,9 +24479,9 @@
 			//
 			var encodedUrl = encodeURIComponent(url);
 			var saved = '/save/' + title + '/' + encodedUrl + '/' + pub;
-			debugger;
+
 			return axios.post(saved).then(function (res) {
-				debugger;
+
 				return res;
 			}).catch(function (error) {
 				console.log(error);
@@ -25918,7 +25918,7 @@
 			var endYear = this.props.params.endYear;
 
 			helpers.getAllArticles(queryTerm, startYear, endYear).then(function (data) {
-				debugger;
+
 				this.setState({
 					queryResults: data.queryResults
 

@@ -13,7 +13,7 @@ var helpers = {
 		
 		return axios.all([getArticles(queryTerm, startYear, endYear)])
 			.then(function(arr){
-				debugger;
+				
 				return {
 
 				queryResults: arr[0].data.response.docs
@@ -25,10 +25,10 @@ var helpers = {
 		// 
 		var encodedUrl = encodeURIComponent(url);
 		var saved = '/save/' + title + '/' + encodedUrl + '/' + pub;
-		debugger;
+
 		return axios.post(saved)
 		.then(function(res){
-			debugger;
+			
 			return res
 		}).catch(function(error){
 			console.log(error);
