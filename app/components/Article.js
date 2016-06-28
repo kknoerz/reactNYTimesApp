@@ -14,9 +14,9 @@ var Article = React.createClass({
 	handleClick: function() {
 		// debugger;
 		if(this.props.button == 'Save'){
-			debugger;
+
 			helpers.save(this.props.title, this.props.url, this.props.pub_date).then(function(res){
-	    		// debugger;
+	    		
 	    		this.setState({
 	    			button: 'Saved'
 	    		});
