@@ -8,10 +8,10 @@
 ### Usage
 
 * To use this app, input your topic query and date range. Then, select "Search NY Times".
+* Selecting the title header will link you to the article directly.
 
 [![Screen View](http://share.gifyoutube.com/XDvrRv.gif)](https://www.youtube.com/watch?v=Q-XHzFy6C2U&feature=youtu.be)
 
-* Selecting the title header will link you to the article directly.
 * Select an article to save by clicking "Saved". Notice this article now reads as "Saved". 
 
 [![Screen View](http://share.gifyoutube.com/mZmYWG.gif)](https://www.youtube.com/watch?v=tJTu3ZUfqyY&feature=youtu.be)
