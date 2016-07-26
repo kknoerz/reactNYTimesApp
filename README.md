@@ -12,7 +12,6 @@
 [![Screen View](http://share.gifyoutube.com/XDvrRv.gif)](https://www.youtube.com/watch?v=Q-XHzFy6C2U&feature=youtu.be)
 
 * Selecting the title header will link you to the article directly.
-
 * Select an article to save by clicking "Saved". Notice this article now reads as "Saved". 
 
 [![Screen View](http://share.gifyoutube.com/J6MNrK.gif)](https://www.youtube.com/watch?v=tJTu3ZUfqyY&feature=youtu.be)
