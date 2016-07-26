@@ -14,7 +14,7 @@
 
 * Select an article to save by clicking "Saved". Notice this article now reads as "Saved". 
 
-[![Screen View](https://j.gifs.com/J6MNrK.gif)](https://www.youtube.com/watch?v=tJTu3ZUfqyY&feature=youtu.be)
+[![Screen View](http://share.gifyoutube.com/J6MNrK.gif)](https://www.youtube.com/watch?v=tJTu3ZUfqyY&feature=youtu.be)
 
 * Saved articles can be accessed by selecting the Saved Articles button.  
 
