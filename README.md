@@ -14,21 +14,17 @@
 
 [![Screen View](http://share.gifyoutube.com/XDvrRv.gif)](https://www.youtube.com/watch?v=Q-XHzFy6C2U&feature=youtu.be)
 
+* Selecting the title header will link you to the article directly.
+
 * Select an article to save by clicking "Saved". Notice this article now reads as "Saved". 
 
-* Selecting the title header will link you to the article directly. 
+[![Screen View](http://share.gifyoutube.com/J6MNrK.gif)](https://www.youtube.com/watch?v=tJTu3ZUfqyY&feature=youtu.be)
 
-* To create a note, simply title your note and write your note in the body of the notepad.
+* Saved articles can be accessed by selecting the Saved Articles button.  
 
+[![Screen View](http://share.gifyoutube.com/v2y8v8.gif)](https://www.youtube.com/watch?v=t4sNak66aVw&feature=youtu.be)
 
-[![Screen View](http://share.gifyoutube.com/0R72kV.gif)](https://www.youtube.com/watch?v=HbjFXeACgq8)
+* Saved articles can be removed by pressing Remove and can be read by pressing the link in each title header. 
 
-* Notes are saved by pressing the submit button and are displayed on the right-most column in the note bin.
-
-* Notes can be edited by selection from the note bin
-
-* The current note is retrieved to the note pad. The article content is also  made available.
-
-
-[![Screen View](http://share.gifyoutube.com/YEmQPW.gif)](https://www.youtube.com/watch?v=IyNnTKXP1Yk)
+[![Screen View](http://share.gifyoutube.com/yPB9yn.gif)](https://www.youtube.com/watch?v=z86Twu-0Pf4&feature=youtu.be)
 
