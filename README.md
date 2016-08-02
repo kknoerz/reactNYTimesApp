@@ -10,14 +10,14 @@
 * To use this app, input your topic query and date range. Then, select "Search NY Times".
 * Selecting the title header will link you to the article directly.
 
-[![Screen View](http://i.giphy.com/9JV3808VmQyk0.gif)](https://www.youtube.com/watch?v=Q-XHzFy6C2U&feature=youtu.be)
+[![Screen View](http://share.gifyoutube.com/EREjXN.gif)](https://www.youtube.com/watch?v=Q-XHzFy6C2U&feature=youtu.be)
 
 * Select an article to save by clicking "Saved". Notice this article now reads as "Saved". 
 
-[![Screen View](http://i.giphy.com/QD8OVuRDqy8sE.gif)](https://www.youtube.com/watch?v=tJTu3ZUfqyY&feature=youtu.be)
+[![Screen View](http://share.gifyoutube.com/NkgvjK.gif)](https://www.youtube.com/watch?v=tJTu3ZUfqyY&feature=youtu.be)
 
 * Saved articles can be accessed by selecting the Saved Articles button.  
 * Saved articles can be removed by pressing Remove and can be read by pressing the link in each title header. 
 
-[![Screen View](http://i.giphy.com/8CA2DEA9E8Yow.gif)](https://www.youtube.com/watch?v=z86Twu-0Pf4&feature=youtu.be)
+[![Screen View](http://share.gifyoutube.com/1wOyqo.gif)](https://www.youtube.com/watch?v=z86Twu-0Pf4&feature=youtu.be)
 
