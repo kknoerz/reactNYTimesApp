@@ -1,8 +1,6 @@
 
 # New York Times Article Scrubber
 
-## [Try it out](https://nytimesreactapp.herokuapp.com/)
-
 * With [React.js](https://facebook.github.io/react/) as a UI, this app uses [Axios](https://www.npmjs.com/package/axios) to scrape and query topics within date ranges from [The New York Times](http:/www.nytimes.com/) using the [NYTimes API](https://developer.nytimes.com/) and makes them easily accessible for users to link to. 
 
 *  A SAVE feature using [MongoDB](https://www.mongodb.com) and [Mongoose.js](http://mongoosejs.com/) allowes users to save articles for future reading as well as be REMOVED when no longer needed.
@@ -23,3 +21,4 @@
 
 [![Screen View](http://share.gifyoutube.com/1wOyqo.gif)](https://www.youtube.com/watch?v=z86Twu-0Pf4&feature=youtu.be)
 
+## [Try it out](https://nytimesreactapp.herokuapp.com/)
